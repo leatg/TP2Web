@@ -1,5 +1,3 @@
-import CourseModel from '../models/course.js';
-import Repository from '../models/repository.js';
 import Controller from './Controller.js';
 import path from 'path';
 import fs from 'fs';
