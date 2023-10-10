@@ -154,9 +154,10 @@ export default class MathsController extends Controller {
         this.HttpContext.response.HTML(fs.readFileSync(helpPagePath));
     }
     get() {
-        if (this.HttpContext.path.queryString == '?')
+        if (this.HttpContext.path.queryString == '?'){
+            console.log("HELP");
             this.help();
-        else
+        }else
             this.doOperation();
     }
     
