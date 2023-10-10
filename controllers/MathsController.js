@@ -9,36 +9,8 @@ export default class MathsController extends Controller {
         super(HttpContext, new Repository(new CourseModel()));
         this.params = HttpContext.path.params;
     }
-    doOperation(){
-        let result;
-        let x = parseFloat(this.params.x);
-        let y = parseFloat(this.params.y);
-        let n = parseFloat(this.params.n);
-        console.log("1 + " + JSON.stringify(this.params))
-        if("op" in this.params){
-            switch (this.params.op){
-                case "/":
-                    result = this.division(x, y);
-                    break;
-                case " ":
-                    result = this.addition(x, y);
-                    break;
-                case "-":
-                    result = this.substraction(x, y);
-                    break;
-                case "%":
-                    result = this.modulo(x, y);
-                    break;
-                case "*":
-                    result = this.multiply(x, this.params.y);
-                    break;
-            }
-        }
-        console.log(result);
-        this.params.value = result;
-        this.HttpContext.response.end(JSON.stringify(this.params))
-    }
-    startOperation() {
+    
+    doOperation() {
         const nCalc = ['!', 'p', 'np'];
         const xyCalc = [' ', '+', '-', '/', '*', '%'];
         const xyParams = ['op', 'x', 'y'];
@@ -187,7 +159,7 @@ export default class MathsController extends Controller {
         if(this.HttpContext.path.queryString == '?')
             this.help();
         else
-            this.startOperation();
+            this.doOperation();
     }
     
 }
