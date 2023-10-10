@@ -6,58 +6,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>KBG-API Server</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="icon" href="../images/favicon.png">
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="icon" href="images/favicon.png">
 </head>
 
 <body>
-    <img src="../images/favicon.png" alt="" class="icon">
+    <img src="images/favicon.png" alt="" class="icon">
     <h1>KBG - API SERVER</h1>
-    <h3>Auteur: Luis Carlos Lopez</h3>
+    <h3>Auteur: Nicolas Chourot</h3>
     <h3>Département d'informatique</h3>
     <h3>Collège Lionel-Groulx</h3>
     <hr>
     <br>
     <br>
     <div style="margin:auto; width:90%">
-        <h1>Aide pour le service Maths</h1>
-        <h2><a href="../MathsTests/testMathsAPI.html" target="_blank">Tester Maths!</a></h2>
+        <h1>Liste des services</h1>
+
+        <h2><a href="api/contacts" target="_blank">Contacts</a></h2>
         <div class="endpoints">
             <span>GET</span>
-            <span>api/maths</span>
+            <span>api/contacts</span>
             <span></span>
 
             <span>GET</span>
-            <span>api/maths?op=+</span>
-            <span>{ "x": number, "y": number }</span>
+            <span>api/contacts/id</span>
+            <span></span>
+
+            <span>POST</span>
+            <span>api/contacts</span>
+            <span>{ "Name": string, "Phone": string, "Email": string } Name doit être unique</span>
+
+            <span>PUT</span>
+            <span>api/contacts/id</span>
+            <span>{ "Name": string, "Phone": string, "Email": string } Name doit être unique</span>
+
+            <span>DELETE</span>
+            <span>api/contacts/id</span>
+            <span></span>
+
+        </div>
+        <br>
+
+        <h2><a href="api/bookmarks" target="_blank">Bookmarks</a></h2>
+        <div class="endpoints">
+            <span>GET</span>
+            <span>api/bookmarks</span>
+            <span></span>
 
             <span>GET</span>
-            <span>api/maths?op=-</span>
-            <span>{ "x": number, "y": number }</span>
+            <span>api/bookmarks/id</span>
+            <span></span>
 
-            <span>GET</span>
-            <span>api/maths?op=*</span>
-            <span>{ "x": number, "y": number }</span>
+            <span>POST</span>
+            <span>api/bookmarks</span>
+            <span>{ "Title": string, "Url": string, "Category": string } Title doit être unique</span>
 
-            <span>GET</span>
-            <span>api/maths?op=/</span>
-            <span>{ "x": number, "y": number }</span>
+            <span>PUT</span>
+            <span>api/bookmarks/id</span>
+            <span>{ "Title": string, "Url": string, "Category": string } Title doit être unique</span>
 
-            <span>GET</span>
-            <span>api/maths?op=%</span>
-            <span>{ "x": number, "y": number }</span>
+            <span>DELETE</span>
+            <span>api/bookmarks/id</span>
+            <span></span>
 
-            <span>GET</span>
-            <span>api/maths?op=!</span>
-            <span>{ "n": integer }</span>
+        </div>
 
-            <span>GET</span>
-            <span>api/maths?op=p</span>
-            <span>{ "n": integer }</span>
+        <h2><a href="api/maths?" target="_blank">Maths</a></h2>
+        <div class="endpoints">
+            <span>GET : Maths endpoint</span>
+            <span>List of possible query strings:</span>
+            <span></span>
 
-            <span>GET</span>
-            <span>api/maths?op=np</span>
-            <span>{ "n": integer }</span>
+            <span>? op = + & x = number & y = number</span>
+            <span>return {"op":"+","x":number,"y":number, "value": x + y}</span>
+            
+            <span>? op = - & x = number & y = number</span>
+            <span>return {"op":"-","x":number,"y":number, "value": x - y}</span>
+
+            <span>? op = * & x = number & y = number</span>
+            <span>return {"op":"*","x":number,"y":number, "value": x * y}</span>
+
+            <span>? op = / & x = number & y = number</span>
+            <span>return {"op":"/","x":number,"y":number, "value": x / y}</span>
+
+            <span>? op = % & x = number & y = number</span>
+            <span>return {"op":"%","x":number,"y":number, "value": x % y}</span>
+
+            <span>? op = ! & n = integer</span>
+            <span>return {"op":"%","n":integer,"value": n!}</span>
+
+            <span>? op = p & n = integer</span>
+            <span>return {"op":"p","n":integer,"value": true if n is prime number}</span>
+
+            <span>? op = np & x = number & y = number</span>
+            <span>return {"op":"n","n":integer,"value": nth prime number}</span>
+
         </div>
     </div>
 
